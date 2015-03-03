@@ -10,15 +10,4 @@ public class LaserMove : MonoBehaviour
         rigidbody.velocity = transform.forward * speed;
     }
 
-    //void Update()
-    //{
-    //    if ((this.transform.position.x > boundary.xMax) ||
-    //        (this.transform.position.x < boundary.xMin) ||
-    //        (this.transform.position.z > boundary.zMax) ||
-    //        (this.transform.position.z < boundary.zMin))
-    //    {
-    //        Debug.Log("oo");
-    //        Destroy(this);
-    //    }
-    //}
 }
