@@ -10,7 +10,7 @@ public class DestroyAsteroid : MonoBehaviour
     static int random_z_value = 0;
 
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)//collision event 
     {
         if ((other.tag == "Boundary") || (other.tag == "smAsteroid"))
         {
@@ -35,7 +35,7 @@ public class DestroyAsteroid : MonoBehaviour
 
     }
 
-    void Start()
+    void Start()//move direction (random)
     {
         random_x_value = Random.Range(-speed_range, speed_range);
         random_z_value = Random.Range(-speed_range, speed_range);

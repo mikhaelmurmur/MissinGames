@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float fire_rate;
     float next_fire;
 
-    void Update()
+    void Update()//firing with lmb 
     {
         if (Input.GetKey(KeyCode.Mouse0)&& Time.time >next_fire)
         {

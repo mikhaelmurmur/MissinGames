@@ -15,28 +15,30 @@ public class GameController : Singleton<GameController>
     public GameObject playerprefab;
     public GameObject _player;
 
-    void Start()
+    void Start()//start of spawning asteroids
     {
         player = _player;
         StartCoroutine(SpawnWaves());
     }
 
-    void Update()
+    void Update()//respawn of a player
     {
         if(!isPlayerAlive)
         {
             if (Input.GetKey(KeyCode.R))
             {
-                GameObject[] lst = GameObject.FindGameObjectsWithTag("");
+                GameObject[] lst = GameObject.FindGameObjectsWithTag("smAsteroid");
                 for (int i = 0; i < lst.Length; i++)
                 {
                     Destroy(lst[i].gameObject);
                 }
+                Instantiate(playerprefab, Vector3.forward, gameObject.transform.rotation);
+                isPlayerAlive = true;
             }
         }
     }
 
-    IEnumerator SpawnWaves()
+    IEnumerator SpawnWaves()//the spawning function
     {
         yield return new WaitForSeconds(startWait);
         while (true)

@@ -15,12 +15,12 @@ public class PlayerMovement : MonoBehaviour
     public float angle;
     public Boundary boundary;
 
-    void FixedUpdate()
+    void FixedUpdate()//movement function
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        if ((moveHorizontal == 0) && (moveVertical!=0))
+        if ((moveHorizontal == 0) && (moveVertical!=0))//rotating when you are staying 
         {
             if(Input.GetKey(KeyCode.W))
             {
@@ -34,10 +34,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else
+        else//moving forward or backward
         {
-
-
             if (Input.GetKey(KeyCode.D))
             {
                 transform.Rotate(Vector3.up, angle);
@@ -49,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
                     transform.Rotate(Vector3.down, angle);
                 }
             }
-            rigidbody.position = new Vector3
+            rigidbody.position = new Vector3//control for the player not to leave the game area
             (
                Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax),
                0.0f,
